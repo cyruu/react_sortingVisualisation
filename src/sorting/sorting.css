@@ -1,12 +1,18 @@
 .bar {
-  width: 5px;
-  background-color: red;
+  background-color: #ff8343;
 }
 .bars {
   /* background-color: blue; */
+  width: 80vw;
+  height: 500px;
   display: flex;
+  justify-content: center;
   align-items: flex-end;
   margin-bottom: 1rem;
+}
+.container {
+  display: flex;
+  flex-direction: column;
 }
 .main-container {
   height: 100vh;
@@ -15,4 +21,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.options {
+  margin-bottom: 5vh;
+  display: flex;
+  color: white;
+}
+.freq,
+.speed {
+  display: flex;
+}
+button {
+  cursor: pointer;
+  border: none;
+  padding: 0.4rem;
+  margin-right: 1rem;
+  background-color: white;
+}
+input[type="range"] {
+  margin-left: 0.4rem;
+  overflow: hidden;
+  /* width: 80px; */
+  -webkit-appearance: none;
+  background-color: white;
+  border-radius: 1rem;
+  padding: 0 2px;
 }
