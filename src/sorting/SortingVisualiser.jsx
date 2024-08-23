@@ -17,6 +17,12 @@ const SortingVisualiser = () => {
       tempArr.push(randomValue(5, 500));
     }
     setArr(tempArr);
+    for (let i = 0; i < freq; i++) {
+      const bar = document.querySelectorAll(".bar")[i];
+      if (bar) {
+        bar.style.backgroundColor = "#fff5e4";
+      }
+    }
   };
   useEffect(() => {
     isSorting.current = false;
