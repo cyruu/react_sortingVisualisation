@@ -26,7 +26,7 @@ export const bubbleSort = async (arr, setArr, speed, isSorting) => {
         await myPromise(speed);
       }
       selected.style.backgroundColor = defaultColor;
-      comapring.style.backgroundColor = defaultColor;
+      comapring.style.backgroundColor = "#afbcff";
     }
   }
   isSorting.current = false;
