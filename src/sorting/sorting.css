@@ -1,5 +1,6 @@
 .bar {
-  background-color: #ff8343;
+  background-color: #f7f7f8;
+  margin: 0 1px;
 }
 .bars {
   /* background-color: blue; */
@@ -30,13 +31,15 @@
 .freq,
 .speed {
   display: flex;
+  margin-bottom: 0.7rem;
 }
 button {
   cursor: pointer;
   border: none;
-  padding: 0.4rem;
+  padding: 0.4rem 0.8rem;
   margin-right: 1rem;
   background-color: white;
+  border-radius: 15px;
 }
 input[type="range"] {
   margin-left: 0.4rem;
@@ -45,5 +48,13 @@ input[type="range"] {
   -webkit-appearance: none;
   background-color: white;
   border-radius: 1rem;
-  padding: 0 2px;
+  padding: 0 1.5px;
+}
+@media screen and (max-width: 600px) {
+  .options {
+    flex-direction: column;
+  }
+  #speed-label {
+    margin-right: 1.8rem;
+  }
 }

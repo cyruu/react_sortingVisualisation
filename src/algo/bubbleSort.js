@@ -1,13 +1,22 @@
-export const bubbleSort = async (arr, setArr, speed) => {
+export const bubbleSort = async (arr, setArr, speed, isSorting) => {
+  //prevent multiple sorting together
+  if (isSorting.current) {
+    isSorting.current = false;
+  } else {
+    isSorting.current = true;
+  }
   let sortedArr = [...arr];
-  let defaultColor = "#ff8343";
+  let defaultColor = "#fff5e4";
+  let sortingColor1 = "#B4E380";
+  let sortingColor2 = "#FF8225";
   var j = 0;
   for (let i = 0; i < sortedArr.length - 1; i++) {
+    if (!isSorting.current) return;
     for (j = 0; j < sortedArr.length - i - 1; j++) {
       const selected = document.querySelectorAll(".bar")[j];
       const comapring = document.querySelectorAll(".bar")[j + 1];
-      selected.style.backgroundColor = "#4158A6";
-      comapring.style.backgroundColor = "#4158A6";
+      selected.style.backgroundColor = sortingColor1;
+      comapring.style.backgroundColor = sortingColor2;
       if (sortedArr[j] > sortedArr[j + 1]) {
         let temp = sortedArr[j];
         sortedArr[j] = sortedArr[j + 1];
@@ -20,6 +29,7 @@ export const bubbleSort = async (arr, setArr, speed) => {
       comapring.style.backgroundColor = defaultColor;
     }
   }
+  isSorting.current = false;
 };
 
 const myPromise = (speed) => {

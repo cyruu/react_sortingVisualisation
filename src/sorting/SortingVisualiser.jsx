@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { bubbleSort } from "../algo/bubbleSort";
 import "./sorting.css";
 const SortingVisualiser = () => {
   const [arr, setArr] = useState([]);
-  const [freq, setFreq] = useState(120);
-  const [speed, setSpeed] = useState(1);
+  const [freq, setFreq] = useState(50);
+  const [speed, setSpeed] = useState(10);
+  const isSorting = useRef(false);
 
   const randomValue = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -18,13 +19,20 @@ const SortingVisualiser = () => {
     setArr(tempArr);
   };
   useEffect(() => {
+    isSorting.current = false;
+  }, [freq, speed]);
+  useEffect(() => {
     resetArray();
   }, [freq]);
   return (
     <div className="container">
       <div style={{ marginBottom: "1rem" }}>
         <button onClick={resetArray}>New Array</button>
-        <button onClick={() => bubbleSort(arr, setArr, speed)}>
+        <button
+          onClick={() => {
+            bubbleSort(arr, setArr, speed, isSorting);
+          }}
+        >
           Bubble Sort
         </button>
       </div>
@@ -34,19 +42,21 @@ const SortingVisualiser = () => {
           <input
             type="range"
             id="frequency"
-            min="120"
-            max="220"
+            min="50"
+            max="80"
             value={freq}
             onChange={({ target }) => setFreq(target.value)}
           />
         </div>
         <div className="speed">
-          <label htmlFor="speed">Speed</label>
+          <label htmlFor="speed" id="speed-label">
+            Speed
+          </label>
           <input
             type="range"
             id="speed"
-            min="1"
-            max="15"
+            min="10"
+            max="400"
             value={speed}
             onChange={({ target }) => setSpeed(target.value)}
           />
@@ -58,7 +68,7 @@ const SortingVisualiser = () => {
             <div
               key={i}
               className="bar"
-              style={{ height: `${el}px`, width: `4px` }}
+              style={{ height: `${el}px`, width: `8px` }}
             ></div>
           );
         })}
