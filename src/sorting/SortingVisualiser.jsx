@@ -6,6 +6,7 @@ const SortingVisualiser = () => {
   const [arr, setArr] = useState([]);
   const [freq, setFreq] = useState(50);
   const [speed, setSpeed] = useState(10);
+  const [barWidth, setBarWidth] = useState(8);
   const isSorting = useRef(false);
 
   const randomValue = (min, max) => {
@@ -57,9 +58,13 @@ const SortingVisualiser = () => {
             type="range"
             id="frequency"
             min="50"
-            max="80"
+            max="100"
             value={freq}
-            onChange={({ target }) => setFreq(target.value)}
+            onChange={({ target }) => {
+              setFreq(target.value);
+              // with decrease as freq increase
+              setBarWidth(8 * (45 / freq));
+            }}
           />
         </div>
         <div className="speed">
@@ -82,7 +87,7 @@ const SortingVisualiser = () => {
             <div
               key={i}
               className="bar"
-              style={{ height: `${el}px`, width: `8px` }}
+              style={{ height: `${el}px`, width: `${barWidth}px` }}
             ></div>
           );
         })}
