@@ -6,13 +6,14 @@ export const bubbleSort = async (arr, setArr, speed, isSorting) => {
     isSorting.current = true;
   }
   let sortedArr = [...arr];
+  let sortedColor = "#afbcff";
   let defaultColor = "#fff5e4";
   let sortingColor1 = "#B4E380";
   let sortingColor2 = "#FF8225";
   var j = 0;
   for (let i = 0; i < sortedArr.length - 1; i++) {
-    if (!isSorting.current) return;
     for (j = 0; j < sortedArr.length - i - 1; j++) {
+      if (!isSorting.current) return;
       const selected = document.querySelectorAll(".bar")[j];
       const comapring = document.querySelectorAll(".bar")[j + 1];
       selected.style.backgroundColor = sortingColor1;
@@ -26,9 +27,11 @@ export const bubbleSort = async (arr, setArr, speed, isSorting) => {
         await myPromise(speed);
       }
       selected.style.backgroundColor = defaultColor;
-      comapring.style.backgroundColor = "#afbcff";
+      comapring.style.backgroundColor = sortedColor;
     }
   }
+  // const first = document.querySelectorAll(".bar")[0];
+  // first.style.backgroundColor = sortedColor;
   isSorting.current = false;
 };
 

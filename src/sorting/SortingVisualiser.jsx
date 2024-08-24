@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { bubbleSort } from "../algo/bubbleSort";
 import "./sorting.css";
+import { insertionSort } from "../algo/insertionSort";
 const SortingVisualiser = () => {
   const [arr, setArr] = useState([]);
   const [freq, setFreq] = useState(50);
@@ -40,6 +41,13 @@ const SortingVisualiser = () => {
           }}
         >
           Bubble Sort
+        </button>
+        <button
+          onClick={() => {
+            insertionSort(arr, setArr, speed, isSorting);
+          }}
+        >
+          Insertion Sort
         </button>
       </div>
       <div className="options">
