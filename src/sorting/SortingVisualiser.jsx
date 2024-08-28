@@ -50,6 +50,13 @@ const SortingVisualiser = () => {
         >
           Insertion Sort
         </button>
+        <button
+          onClick={() => {
+            insertionSort(arr, setArr, speed, isSorting);
+          }}
+        >
+          Quick Sort
+        </button>
       </div>
       <div className="options">
         <div className="freq" style={{ marginRight: "1rem" }}>

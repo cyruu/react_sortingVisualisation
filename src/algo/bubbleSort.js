@@ -30,8 +30,6 @@ export const bubbleSort = async (arr, setArr, speed, isSorting) => {
       comapring.style.backgroundColor = sortedColor;
     }
   }
-  // const first = document.querySelectorAll(".bar")[0];
-  // first.style.backgroundColor = sortedColor;
   isSorting.current = false;
 };
 
