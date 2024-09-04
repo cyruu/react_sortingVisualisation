@@ -34,7 +34,7 @@ const SortingVisualiser = () => {
   }, [freq]);
   return (
     <div className="container">
-      <div style={{ marginBottom: "1rem" }}>
+      <div style={{ marginBottom: "1rem", marginLeft: "2rem" }}>
         <button onClick={resetArray}>New Array</button>
         <button
           onClick={() => {

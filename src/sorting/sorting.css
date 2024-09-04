@@ -4,6 +4,7 @@
 }
 .bars {
   /* background-color: blue; */
+  margin: 0 auto;
   width: 80vw;
   height: 500px;
   display: flex;
@@ -24,6 +25,7 @@
   align-items: center;
 }
 .options {
+  margin-left: 2rem;
   margin-bottom: 5vh;
   display: flex;
   color: white;
@@ -36,6 +38,7 @@
 button {
   cursor: pointer;
   border: none;
+  margin-bottom: 0.4rem;
   padding: 0.4rem 0.8rem;
   margin-right: 1rem;
   background-color: white;
